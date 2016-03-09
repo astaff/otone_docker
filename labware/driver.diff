@@ -1,0 +1,14 @@
+diff --git a/labware_driver.py b/labware_driver.py
+index bade37d..c5d0d58 100644
+--- a/labware_driver.py
++++ b/labware_driver.py
+@@ -5,8 +5,7 @@ import asyncio, json, copy
+ import datetime
+ import sys
+ from collections import Callable
+-import labware
+-from labware.engine.session import Session
++from labsuite.engine.session import Session
+ 
+ 
+ class LabwareDriver(object):

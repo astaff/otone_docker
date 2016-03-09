@@ -1,0 +1,22 @@
+controller:
+  image: crossbar
+  ports:
+    - "8080:8080"
+labware:
+  image: labware
+  environment:
+    - CROSSBAR_HOST=controller
+  links:
+    - controller
+driver:
+  environment:
+    - CROSSBAR_HOST=controller
+  image: driver
+  links:
+    - controller
+frontend:
+  image: frontend
+  ports:
+    - "5000:5000"
+  links:
+    - controller
