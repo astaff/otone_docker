@@ -1,5 +1,5 @@
 # Prerequisites
-Docker 1.9 is required (1.10 introduced braking chages that affect the ability to squash images)
+Docker 1.9 is required (1.10 introduced breaking chages that affect the ability to squash images)
 
 ARM: Please visit http://blog.hypriot.com/downloads/ and download latest Raspbian image with Docker and update docker with 1.9 package (```dpkg -i package_name.deb```). Latest docker for ARM: https://downloads.hypriot.com/docker-hypriot_1.9.1-1_armhf.deb.
 
