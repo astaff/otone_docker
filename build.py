@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import subprocess
 
-repo='astaff'
+repo='$REPO'
 subprocess.call(
     "docker build -t common-$ARCH common/$ARCH && docker tag -f common-$ARCH common",
     shell=True)
@@ -11,19 +11,14 @@ subprocess.call(
 subprocess.call(
     "docker build -t {0}-$ARCH {0} && docker tag -f {0}-$ARCH {0}".format("common-build"),
     shell=True)
-
 subprocess.call(
-    "docker build -t {0}-$ARCH {0}".format("bootstrap"),
+    "docker build -t {0}-$ARCH {0} && docker tag -f {0}-$ARCH {0}".format("bootstrap"),
     shell=True)
 subprocess.call(
     "docker save {0}-$ARCH | docker-squash -t {1}/{0}-$ARCH:latest | docker load && docker push {1}/{0}-$ARCH:latest".format("bootstrap", repo),
     shell=True)
 
-
-# containers = ["bootstrap", "crossbar", "frontend", "driver", "labware"]
-# containers = ["bootstrap", "frontend", "driver", "labware"]
 containers = ["crossbar", "frontend", "driver", "labware"]
-# containers = ["labware"]
 
 for container in containers:
     subprocess.call(
