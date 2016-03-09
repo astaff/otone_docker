@@ -1,0 +1,42 @@
+diff --git a/labware_client.py b/labware_client.py
+index 8012a1c..0f50abb 100644
+--- a/labware_client.py
++++ b/labware_client.py
+@@ -9,6 +9,7 @@ import datetime
+ import sys
+ import collections
+ import copy
++import os
+ 
+ 
+ 
+@@ -601,7 +602,7 @@ class LabwareClient():
+         if not keep_trying:
+             try:
+                 print('\nLabware attempting crossbar connection\n')
+-                self._make_connection()
++                self._make_connection(url_domain=url_domain, url_port=url_port)
+             except:
+                 print('crossbar connection attempt error:\n',sys.exc_info())
+                 pass
+@@ -610,7 +611,7 @@ class LabwareClient():
+                 while (self.session_factory._crossbar_connected == False):
+                     try:
+                         print('\nLabware attempting crossbar connection\n')
+-                        self._make_connection()
++                        self._make_connection(url_domain=url_domain, url_port=url_port)
+                     except KeyboardInterrupt:
+                         self.session_factory._crossbar_connected = True
+                     except:
+@@ -764,7 +765,10 @@ if __name__ == '__main__':
+ 
+         print('\nEND INIT...\n')
+ 
+-        labware_client.connect()
++        labware_client.connect(
++          url_domain=os.environ.get('CROSSBAR_HOST', '0.0.0.0'),
++          url_port=int(os.environ.get('CROSSBAR_PORT', '8080'))
++          )
+ 
+     except KeyboardInterrupt:
+         pass

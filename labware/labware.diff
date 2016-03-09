@@ -1,0 +1,13 @@
+diff --git a/labsuite/engine/session.py b/labsuite/engine/session.py
+index f9f8d69..6ae1762 100644
+--- a/labsuite/engine/session.py
++++ b/labsuite/engine/session.py
+@@ -10,7 +10,7 @@ The virtual robot dispatches commands to the actual robot using low-level
+ commands based on calculated absolute coordinates for movements.
+ """
+ 
+-from labsuite.engine import Context
++# from labsuite.engine import Context
+ 
+ _sessions = {}
+ 
