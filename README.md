@@ -1,6 +1,12 @@
 # Prerequisites
 Docker 1.9 is required (1.10 introduced breaking chages that affect the ability to squash images)
 
+Install docker-squash (https://github.com/jwilder/docker-squash):
+```
+wget https://github.com/jwilder/docker-squash/releases/download/v0.2.0/docker-squash-linux-amd64-v0.2.0.tar.gz
+sudo tar -C /usr/local/bin -xzvf docker-squash-linux-amd64-v0.2.0.tar.gz
+```
+
 ARM: Please visit http://blog.hypriot.com/downloads/ and download latest Raspbian image with Docker and update docker with 1.9 package (```dpkg -i package_name.deb```). Latest docker for ARM: https://downloads.hypriot.com/docker-hypriot_1.9.1-1_armhf.deb.
 
 x86: Tested on Digital Ocean using Ubuntu 14.04 + Docker 1.9.1. 
