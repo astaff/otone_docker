@@ -25,4 +25,9 @@ RUN patch labware_driver.py < driver.diff
 COPY labware.diff labware.diff
 RUN cd labsuite/engine && patch session.py < ../../labware.diff
 
-ENTRYPOINT ["tar", "-cvz", "/usr/lib/python3.5/site-packages/", "/home/sandbox-labware-master"]
+#ENTRYPOINT ["tar", "-cvz", "/usr/lib/python3.5/site-packages/", "/home/sandbox-labware-master"]
+
+# Clean cache
+RUN rm -rf /var/cache/apk/*
+
+ENTRYPOINT ["python3", "labware_client.py"]

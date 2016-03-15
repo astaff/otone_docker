@@ -11,7 +11,7 @@ ARM: Please visit http://blog.hypriot.com/downloads/ and download latest Raspbia
 
 x86: Tested on Digital Ocean using Ubuntu 14.04 + Docker 1.9.1. 
 
-# Descirption
+# Description
 This is the suite of Docker containers to run OT.one software in a nice modular fashion.
 
 Builds are being made in -build containers derived from common-build. After build is complete, it's output is piped out as tar.gz2 which should be stored and copied into a smaller container as one layer for efficient distribution. 

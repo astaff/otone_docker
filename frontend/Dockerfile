@@ -19,4 +19,6 @@ RUN cd static/js && patch communication.js < ../../patch.diff
 
 RUN rm -rf /var/cache/apk/*
 
-ENTRYPOINT ["tar", "-cvz", "/usr/lib/python3.5/site-packages/", "/home/sandbox-frontend-master"]
+#ENTRYPOINT ["tar", "-cvz", "/usr/lib/python3.5/site-packages/", "/home/sandbox-frontend-master"]
+EXPOSE 5000
+ENTRYPOINT ["foreman", "start"]
