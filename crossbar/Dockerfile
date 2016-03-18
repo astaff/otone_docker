@@ -29,8 +29,8 @@ RUN wget https://github.com/dvarrazzo/py-setproctitle/archive/version-1.1.9.zip 
     && SODIUM_INSTALL=system pip install crossbar[all] \
     && mkdir /home/.crossbar && wget https://raw.githubusercontent.com/OpenTrons/otone_backend/master/.crossbar/config.yaml -O /home/.crossbar/config.yaml
 
-#ENTRYPOINT ["tar", "-cvz", "/usr/lib/python3.5/site-packages/", "/usr/bin/crossbar", "/home/.crossbar"]
+ENTRYPOINT ["tar", "-cvz", "/usr/lib/python3.5/site-packages/", "/usr/bin/crossbar", "/home/.crossbar"]
 
 # You need to forward port 8080 with "-p 8080" on the command-line:
 # docker run -p 8080 crossbar
-ENTRYPOINT ["crossbar", "start", "--cbdir", ".crossbar"]
+# ENTRYPOINT ["crossbar", "start", "--cbdir", ".crossbar"]
