@@ -26,7 +26,7 @@ RUN wget https://github.com/dvarrazzo/py-setproctitle/archive/version-1.1.9.zip 
     && cd py-setproctitle-version-1.1.9/ && python3 setup.py install bdist && cd .. \
     && rm temp.zip \
     && rm -rf py-setproctitle-version-1.1.9 \
-    && SODIUM_INSTALL=system pip install crossbar[all] \
+    && SODIUM_INSTALL=system pip install autobahn==0.12.1 crossbar[all]==0.12.1 \
     && mkdir /home/.crossbar && wget https://raw.githubusercontent.com/OpenTrons/otone_backend/master/.crossbar/config.yaml -O /home/.crossbar/config.yaml
 
 ENTRYPOINT ["tar", "-cvz", "/usr/lib/python3.5/site-packages/", "/usr/bin/crossbar", "/home/.crossbar"]

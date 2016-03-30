@@ -1,5 +1,6 @@
 controller:
   image: crossbar
+  tty: true
   ports:
     - "8080:8080"
 labware:
@@ -11,6 +12,7 @@ labware:
 driver:
   environment:
     - CROSSBAR_HOST=controller
+    - SMOOTHIE_SIMULATE=true
   image: driver
   links:
     - controller

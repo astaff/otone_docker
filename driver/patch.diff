@@ -1,5 +1,5 @@
 diff --git a/driver/driver_client.py b/driver/driver_client.py
-index 726fb15..91d8118 100644
+index 726fb15..5a3296a 100644
 --- a/driver/driver_client.py
 +++ b/driver/driver_client.py
 @@ -8,6 +8,7 @@ import datetime
@@ -7,9 +7,9 @@ index 726fb15..91d8118 100644
  import collections
  import copy
 +import os
- 
+
  from smoothie_driver import SmoothieDriver
- 
+
 @@ -647,7 +648,7 @@ class DriverClient():
          if not keep_trying:
              try:
@@ -28,15 +28,24 @@ index 726fb15..91d8118 100644
                      except KeyboardInterrupt:
                          self.session_factory._crossbar_connected = True
                      except:
+@@ -701,7 +702,7 @@ if __name__ == '__main__':
+
+         # INSTANTIATE DRIVERS
+         print(datetime.datetime.now(),' - INSTANTIATE DRIVERS - smoothie_driver ','* * '*10)
+-        smoothie_driver = SmoothieDriver()
++        smoothie_driver = SmoothieDriver(simulate=(os.environ.get('SMOOTHIE_SIMULATE', 'true')=='true'))
+
+
+         # ADD DRIVERS
 @@ -811,7 +812,10 @@ if __name__ == '__main__':
- 
+
          print('END INIT')
- 
+
 -        driver_client.connect()
 +        driver_client.connect(
 +          url_domain=os.environ.get('CROSSBAR_HOST', '0.0.0.0'),
-+          url_port=int(os.environ.get('CROSSBAR_PORT', '8080'))          
++          url_port=int(os.environ.get('CROSSBAR_PORT', '8080'))
 +          )
- 
+
      except KeyboardInterrupt:
          pass

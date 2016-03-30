@@ -13,7 +13,6 @@
 #
 FROM common
 
-WORKDIR /home
 RUN apk update \
     && apk add \
     wget \
@@ -22,6 +21,7 @@ RUN apk update \
     && pip install docker-compose
 
 COPY docker-compose.yml docker-compose.yml
+WORKDIR /home
 
 RUN apk del wget ca-certificates && rm -rf /var/cache/apk/*
 
