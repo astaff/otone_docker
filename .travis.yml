@@ -1,0 +1,11 @@
+sudo: required
+
+language: python
+
+services:
+  - docker
+
+install: true
+script: true
+after_script:
+- ./build.sh
