@@ -1,6 +1,6 @@
 #!/bin/bash
 pip install awscli
-ln -fs $(pwd)/common-$ARCH $(pwd)/common
+sudo ln -fs $(pwd)/common-$ARCH $(pwd)/common
 for name in common common-build crossbar bootstrap
 do
   docker build -t $REPO/$name-$ARCH $name/. \
