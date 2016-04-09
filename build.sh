@@ -1,4 +1,10 @@
 #!/bin/bash
+
+# exit on first error to avoid
+# errors snowballing
+set -o errexit
+
+# Install AWS cli
 pip install awscli
 
 # each archtecture has it's own dockerfile
